@@ -210,6 +210,11 @@ img {
   color: #fff;
 }
 
+.btn-edit {
+  background: #a2de96;
+  color: #fff;
+}
+
 .btn-white,
 .bg-white,
 .badge-white,
