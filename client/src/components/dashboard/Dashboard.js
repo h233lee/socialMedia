@@ -7,6 +7,8 @@ import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 import Experience from './Experience';
 import Education from './Education';
 import DashboardActions from './DashboardActions';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -32,9 +34,15 @@ const Dashboard = ({
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
           <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus"></i> Delete My Account
-            </button>
+            <Button
+              variant="contained"
+              color="secondary"
+              className="danger"
+              startIcon={<DeleteIcon />}
+              onClick={() => deleteAccount()}
+            >
+              Delete Profile
+            </Button>
           </div>
         </Fragment>
       ) : (

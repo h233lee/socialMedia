@@ -31,7 +31,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLink = (
     <ul>
       <li>
-        <Link to="/profiles">Developers</Link>
+        <Link to="/profiles">Profiles</Link>
       </li>
 
       <li>
@@ -47,7 +47,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <nav className="navbar bg-dark">
       <h1>
         <Link to="/">
-          <i className="fas fa-code"></i> DevConnector
+          <i className="fas fa-keyboard"></i> LinkedDev
         </Link>
       </h1>
       {!loading && (

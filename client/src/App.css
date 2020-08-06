@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: #3f51b5;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Anton', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -351,7 +351,7 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url('./img/developer.gif') no-repeat center center/cover;
   height: 100vh;
 }
 
@@ -365,6 +365,56 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+/* Login Page */
+
+.login {
+  position: relative;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.login-picture {
+  background: url('./img/login.svg');
+}
+
+@media (max-width: 700px) {
+  .login-picture {
+    display: none;
+  }
+
+  .login {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Register Page */
+
+.register {
+  position: relative;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.register-picture {
+  position: relative;
+  background: url('./img/welcome.svg');
+  height: 90%;
+  width: 90%;
+  left: 10%;
+}
+
+@media (max-width: 700px) {
+  .register-picture {
+    display: none;
+  }
+
+  .register {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /* Profiles Page */
@@ -506,6 +556,10 @@ button {
   margin-bottom: 0.5rem;
 }
 
+h3 {
+  font-family: 'Arial, Helvetica, sans-serif';
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
@@ -546,6 +600,10 @@ button {
 
   .navbar .welcome {
     display: none;
+  }
+
+  .underline:hover {
+    color: white;
   }
 
   /* Profiles Page */
