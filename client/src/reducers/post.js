@@ -49,6 +49,7 @@ export default function (state = initialState, action) {
         ...state,
         error: payload,
         loading: false,
+        posts: [...state.posts].reverse(),
       };
     case UPDATE_LIKES:
       return {
