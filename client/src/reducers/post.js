@@ -35,13 +35,13 @@ export default function (state = initialState, action) {
     case ADD_POST:
       return {
         ...state,
-        posts: [payload, ...state.posts],
+        posts: [...state.posts, payload].reverse(),
         loading: false,
       };
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter((post) => post._id !== payload),
+        posts: state.posts.filter((post) => post._id !== payload).reverse(),
         loading: false,
       };
     case POST_ERROR:
