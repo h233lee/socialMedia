@@ -40,6 +40,33 @@ router.post(
   }
 );
 
+// @route   PUT api/posts/:id
+// @desc    Edit a post
+// @access  Private
+router.put(
+  '/:id',
+  [auth, [check('text', 'Text is required').not().isEmpty()]],
+  async (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const post = await Post.findOneAndUpdate(
+        { _id: req.params.id },
+        { text: req.body.text },
+        { new: true }
+      );
+
+      res.json(post);
+    } catch (err) {
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
 // @route   GET api/posts
 // @desc    Get all posts
 // @access  Private
