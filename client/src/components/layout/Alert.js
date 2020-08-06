@@ -7,7 +7,12 @@ const Alerts = ({ alerts }) =>
   alerts !== null &&
   alerts.length > 0 &&
   alerts.map((alert) => (
-    <Alert variant="outlined" key={alert.id} severity={`${alert.alertType}`}>
+    <Alert
+      className="m"
+      variant="outlined"
+      key={alert.id}
+      severity={`${alert.alertType}`}
+    >
       {alert.msg}
     </Alert>
   ));

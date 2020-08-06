@@ -5,7 +5,6 @@ import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import authSvg from '../../img/auth.svg';
 
 export const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -23,7 +22,7 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'error');
     } else {
       register({ name, email, password });
     }
