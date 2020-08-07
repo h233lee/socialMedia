@@ -16,6 +16,9 @@ const EditPost = ({
 
   useEffect(() => {
     getPost(match.params.id);
+    if (!loading) {
+      setText(post.text);
+    }
   }, [loading, getPost, match.params.id]);
 
   const onSubmit = (e) => {
