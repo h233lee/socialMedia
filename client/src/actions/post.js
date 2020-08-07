@@ -9,6 +9,7 @@ import {
   GET_POST,
   ADD_COMMENT,
   REMOVE_COMMENT,
+  CLEAR_POST,
 } from './types';
 
 // Get posts
@@ -110,7 +111,6 @@ export const addPost = (formData) => async (dispatch) => {
 export const getPost = (id) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/posts/${id}`);
-
     dispatch({
       type: GET_POST,
       payload: res.data,
@@ -137,6 +137,9 @@ export const editPost = (id, text, history) => async (dispatch) => {
     dispatch(setAlert('Post Updated', 'success'));
 
     history.push('/posts');
+    dispatch({
+      type: CLEAR_POST,
+    });
     dispatch({
       type: GET_POST,
       payload: res.data,
