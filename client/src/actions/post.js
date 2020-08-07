@@ -106,11 +106,37 @@ export const addPost = (formData) => async (dispatch) => {
   }
 };
 
-// Get post
+// Get post by ID
 export const getPost = (id) => async (dispatch) => {
   try {
     const res = await axios.get(`/api/posts/${id}`);
 
+    dispatch({
+      type: GET_POST,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Edit post by ID
+export const editPost = (id, text, history) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const res = await axios.put(`/api/posts/${id}`, { text }, config);
+
+    dispatch(setAlert('Post Updated', 'success'));
+
+    history.push('/posts');
     dispatch({
       type: GET_POST,
       payload: res.data,

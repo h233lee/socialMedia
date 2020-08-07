@@ -59,9 +59,11 @@ const PostItem = ({
               </button>
             )}
             {!auth.loading && user === auth.user._id && (
-              <button type="button" class="btn btn-edit">
-                <i class="fas fa-user-edit"></i>
-              </button>
+              <Link to={`/post/edit/${_id}`}>
+                <button type="button" class="btn btn-edit">
+                  <i class="fas fa-user-edit"></i>
+                </button>
+              </Link>
             )}
           </Fragment>
         )}
